@@ -1,5 +1,6 @@
 package ru.hogwarts.school.controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,8 @@ import java.nio.file.Path;
 import java.util.List;
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/avatar")
+@Tag(name = "Аватары.", description = "CRUD-операции и другие эндпоинты для работы с аватарами.")
 public class AvatarController {
 
     private final AvatarService avatarService;

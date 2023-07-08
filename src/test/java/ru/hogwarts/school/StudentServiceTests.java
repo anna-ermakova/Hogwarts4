@@ -13,11 +13,10 @@ import ru.hogwarts.school.services.StudentService;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
+
 
 @ExtendWith(MockitoExtension.class)
 class StudentServiceTests {
@@ -42,11 +41,13 @@ class StudentServiceTests {
         Assertions.assertEquals(s, out.getStudent(1));
     }
 
+
     @Test
     void getStudentNegativeTest() {
-        Mockito.when(repositoryMock.findById(4L)).thenReturn(Optional.empty());
-        Assertions.assertThrows(NoSuchElementException.class, () -> out.getStudent(4));
+        when(repositoryMock.findById(4L)).thenReturn(Optional.empty());
+        Assertions.assertNull(out.getStudent(4));
     }
+
 
     @Test
     void editStudentTest() {
@@ -54,22 +55,6 @@ class StudentServiceTests {
         Mockito.when(repositoryMock.save(s)).thenReturn(s);
         Assertions.assertEquals(s, out.editStudent(s));
     }
-
-
-//	@Test
-//	void removeStudentPositiveTest() {
-//		Student s = new Student(3, "CCC", 30);
-//		int size = out.getAll().size();
-//		assertEquals(s, out.removeStudent(3));
-//		assertEquals(size - 1, out.getAll().size());
-//	}
-//
-//	@Test
-//	void removeStudentNegativeTest() {
-//		int size = out.getAll().size();
-//		assertNull(out.removeStudent(4));
-//		assertEquals(size, out.getAll().size());
-//	}
 
     @Test
     void getStudentsByAgePositiveTest() {

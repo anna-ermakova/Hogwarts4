@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.hogwarts.school.entity.Faculty;
@@ -15,6 +16,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/student")
+@Tag(name = "Студенты.", description = "CRUD-операции и другие эндпоинты для работы со студентами.")
 public class StudentController {
 
     private final StudentService studentService;

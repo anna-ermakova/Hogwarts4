@@ -52,7 +52,6 @@ public class StudentService {
         return s.getFaculty();
     }
 
-    // Возможность получить количество всех студентов в школе.
     public Integer getTotalNumber() {
         return studentRepository.getTotalNumber();
     }
